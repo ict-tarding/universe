@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT TRADING UNIVERSE | Premium Forex Signals</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0a090e',
+                        cardBg: '#12111a',
+                        cardBorder: '#272238',
+                        neonPurple: '#a855f7',
+                        deepPurple: '#6b21a8',
+                        accentGold: '#fbbf24',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Space Mono"', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite ease-in-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'floatDelayed 8s ease-in-out infinite',
+                        'scanline': 'scanline 8s linear infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 25px rgba(168, 85, 247, 0.4), inset 0 0 15px rgba(168, 85, 247, 0.2)' },
+                            '50%': { boxShadow: '0 0 50px rgba(168, 85, 247, 0.8), inset 0 0 30px rgba(168, 85, 247, 0.4)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(3deg)' },
+                        },
+                        floatDelayed: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(20px) rotate(-4deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #050408;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        /* Custom Glowing Background Grid */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+        }
+        .glass-panel {
+            background: rgba(18, 17, 26, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+        .glass-panel:hover {
+            border-color: rgba(168, 85, 247, 0.5);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.15);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+        }
+        .shimmer-btn {
+            background: linear-gradient(135deg, #9333ea 0%, #c084fc 50%, #7e22ce 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 4s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a090e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b0764;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b21a8;
+        }
+    </style>
+</head>
+<body class="bg-grid antialiased selection:bg-purple-600 selection:text-white">
+
+    <!-- Background Animated Glow Orbs -->
+    <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse"></div>
+    <div class="fixed bottom-10 right-1/4 w-[600px] h-[600px] bg-indigo-950/30 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 6s;"></div>
+
+    <!-- Floating Graphic Candlesticks (Motion Graphics) -->
+    <div class="fixed top-20 left-10 opacity-20 pointer-events-none -z-10 animate-float hidden lg:block">
+        <div class="flex flex-col items-center">
+            <div class="w-1 h-12 bg-purple-500"></div>
+            <div class="w-8 h-24 bg-purple-600 rounded-sm"></div>
+            <div class="w-1 h-10 bg-purple-500"></div>
+        </div>
+    </div>
+    <div class="fixed bottom-32 right-12 opacity-20 pointer-events-none -z-10 animate-float-delayed hidden lg:block">
+        <div class="flex flex-col items-center">
+            <div class="w-1 h-16 bg-emerald-500"></div>
+            <div class="w-8 h-32 bg-emerald-600 rounded-sm"></div>
+            <div class="w-1 h-14 bg-emerald-500"></div>
+        </div>
+    </div>
+
+    <!-- Top Header / Telegram Badge Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#0a090e]/80 border-b border-purple-900/30 py-4 px-4 sm:px-8">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="relative">
+                    <div class="w-11 h-11 rounded-2xl p-[2px] bg-gradient-to-tr from-purple-600 to-indigo-400 animate-pulse-glow">
+                        <div class="w-full h-full bg-[#12111a] rounded-[14px] flex items-center justify-center overflow-hidden">
+                            <!-- User Uploaded Logo Replica -->
+                            <img src="image_69985d.png" alt="ICT Logo" class="w-8 h-8 object-contain filter drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]" onerror="this.src='https://placehold.co/100x100/12111a/ffffff?text=ICT'">
+                        </div>
+                    </div>
+                    <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-[#0a090e] rounded-full"></span>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-1.5">
+                        <h1 class="font-extrabold text-sm sm:text-base tracking-wide text-white">ICT TRADING UNIVERSE</h1>
+                        <i class="fa-solid fa-circle-check text-purple-400 text-xs"></i>
+                    </div>
+                    <p class="text-xs text-purple-300 font-mono">@ict_universe • <span class="text-emerald-400 font-semibold">24,850+ Traders</span></p>
+                </div>
+            </div>
+            
+            <a href="https://t.me/ict_universe" target="_blank" class="shimmer-btn text-white font-bold text-xs sm:text-sm px-4 sm:px-6 py-2.5 rounded-xl shadow-lg hover:opacity-90 transition-all transform hover:scale-105 flex items-center space-x-2">
+                <i class="fa-brands fa-telegram text-base"></i>
+                <span>Join Channel</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-8 pt-10 pb-20">
+
+        <!-- Hero Section -->
+        <section class="text-center py-12 lg:py-16 relative">
+            <div class="inline-flex items-center space-x-2 bg-purple-950/60 border border-purple-700/40 px-4 py-1.5 rounded-full mb-6 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+                <span class="text-xs font-mono text-purple-200 uppercase tracking-widest font-semibold">Institutional Grade SMC & ICT Signals</span>
+            </div>
+            
+            <h2 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 uppercase">
+                Trade Like The <span class="bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-400 bg-clip-text text-transparent text-glow">Smart Money</span>
+            </h2>
+            
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-gray-400 font-normal mb-10 leading-relaxed">
+                Stop gambling retail patterns. Master Inner Circle Trader (ICT) & Smart Money Concepts (SMC) with high-probability institutional forex setups streamed live daily.
+            </p>
+
+            <!-- Countdown Urgency Box & Join CTA -->
+            <div class="max-w-md mx-auto glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden shadow-2xl mb-16">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-indigo-500 to-fuchsia-500 animate-pulse"></div>
+                
+                <div class="text-center mb-6">
+                    <p class="text-xs uppercase tracking-widest text-purple-300 font-mono mb-1">⚡ VIP Access Closing Soon</p>
+                    <h3 class="text-lg font-bold text-white">Next NY Session Setup Dropping In:</h3>
+                    
+                    <!-- Timer Display -->
+                    <div id="countdown-timer" class="flex justify-center items-center space-x-3 my-4 font-mono">
+                        <div class="bg-purple-950/80 border border-purple-600/50 px-4 py-3 rounded-2xl">
+                            <span id="timer-min" class="text-3xl font-extrabold text-purple-300">01</span>
+                            <p class="text-[10px] uppercase text-gray-400 tracking-wider">Minutes</p>
+                        </div>
+                        <span class="text-2xl font-bold text-purple-400">:</span>
+                        <div class="bg-purple-950/80 border border-purple-600/50 px-4 py-3 rounded-2xl">
+                            <span id="timer-sec" class="text-3xl font-extrabold text-purple-300">00</span>
+                            <p class="text-[10px] uppercase text-gray-400 tracking-wider">Seconds</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://t.me/ict_universe" target="_blank" class="w-full shimmer-btn text-white font-bold py-4 px-8 rounded-2xl shadow-xl flex items-center justify-center space-x-3 text-base sm:text-lg transform hover:-translate-y-1 transition-all">
+                    <i class="fa-brands fa-telegram text-2xl"></i>
+                    <span>JOIN @ICT_UNIVERSE FREE</span>
+                </a>
+                <p class="text-xs text-gray-400 mt-4 text-center">🔒 Instant redirect to official Telegram channel</p>
+            </div>
+        </section>
+
+        <!-- ICT & SMC Key Points Section -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h3 class="text-xs font-mono uppercase text-purple-400 tracking-widest mb-2">The Blueprint</h3>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">What You Get Inside The Channel</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="glass-panel p-6 sm:p-8 rounded-3xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chart-line-up text-purple-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Order Block (OB) Precision</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Identify bank footprints where institutional liquidity enters the market for pinpoint entry accuracy.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-panel p-6 sm:p-8 rounded-3xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-magnet text-purple-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Liquidity Sweeps & POI</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Never get caught on the wrong side of stop-hunts. Learn how market makers hunt retail liquidity pools.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-panel p-6 sm:p-8 rounded-3xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bolt-lightning text-purple-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Fair Value Gaps (FVG)</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Trade market imbalances where price moves rapidly, leaving unmitigated institutional price arrays.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="glass-panel p-6 sm:p-8 rounded-3xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bullseye text-purple-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Daily London & NY Bias</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Get pre-market killzone analysis every single morning before major forex sessions open.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="glass-panel p-6 sm:p-8 rounded-3xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-halved text-purple-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Risk Management Blueprint</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Protect capital with strict 1:3 minimum risk-to-reward ratios and professional lot-sizing rules.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="glass-panel p-6 sm:p-8 rounded-3xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-comments-dollar text-purple-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Live Signal Broadcasts</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Instant Telegram push notifications with entry price, stop loss, and multiple take profit targets.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Portfolio / Payout Wall Section -->
+        <section class="mb-20">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h3 class="text-xs font-mono uppercase text-emerald-400 tracking-widest mb-2">The Payout Wall</h3>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Student results. Real certificates.</h2>
+                </div>
+                <p class="text-xs font-mono text-gray-400 mt-2 md:mt-0">Names hidden for privacy • Verified payouts</p>
+            </div>
+
+            <!-- Payout Grid Matching Screenshot Layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Payout Card 1: FTMO -->
+                <div class="bg-[#12111a] border border-gray-800 rounded-2xl p-6 relative flex flex-col justify-between hover:border-purple-600 transition-all shadow-xl">
+                    <div class="absolute top-4 right-4 text-amber-400 text-lg">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div class="absolute top-12 right-3 transform rotate-12 border border-emerald-500/60 bg-emerald-950/40 text-emerald-400 text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase tracking-wider">
+                        PAID
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm tracking-widest text-gray-300 mb-6 uppercase">FTMO</h4>
+                        <p class="text-[11px] font-mono text-gray-400 tracking-wider uppercase mb-1">Payout Certificate</p>
+                        <div class="text-3xl font-extrabold text-amber-400 font-mono tracking-tight mb-8">$4,250.00</div>
+                    </div>
+                    <div class="pt-4 border-t border-gray-800/80 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                        <span>JUN 2026</span>
+                        <span>REF FT-88421</span>
+                    </div>
+                </div>
+
+                <!-- Payout Card 2: FUNDING PIPS -->
+                <div class="bg-[#12111a] border border-gray-800 rounded-2xl p-6 relative flex flex-col justify-between hover:border-purple-600 transition-all shadow-xl">
+                    <div class="absolute top-4 right-4 text-amber-400 text-lg">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div class="absolute top-12 right-3 transform rotate-12 border border-emerald-500/60 bg-emerald-950/40 text-emerald-400 text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase tracking-wider">
+                        PAID
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm tracking-widest text-gray-300 mb-6 uppercase">FUNDING PIPS</h4>
+                        <p class="text-[11px] font-mono text-gray-400 tracking-wider uppercase mb-1">Payout Certificate</p>
+                        <div class="text-3xl font-extrabold text-amber-400 font-mono tracking-tight mb-8">$2,180.50</div>
+                    </div>
+                    <div class="pt-4 border-t border-gray-800/80 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                        <span>MAY 2026</span>
+                        <span>REF FP-33907</span>
+                    </div>
+                </div>
+
+                <!-- Payout Card 3: THE5ERS -->
+                <div class="bg-[#12111a] border border-gray-800 rounded-2xl p-6 relative flex flex-col justify-between hover:border-purple-600 transition-all shadow-xl">
+                    <div class="absolute top-4 right-4 text-amber-400 text-lg">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div class="absolute top-12 right-3 transform rotate-12 border border-emerald-500/60 bg-emerald-950/40 text-emerald-400 text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase tracking-wider">
+                        PAID
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm tracking-widest text-gray-300 mb-6 uppercase">THE5ERS</h4>
+                        <p class="text-[11px] font-mono text-gray-400 tracking-wider uppercase mb-1">Payout Certificate</p>
+                        <div class="text-3xl font-extrabold text-amber-400 font-mono tracking-tight mb-8">$6,940.00</div>
+                    </div>
+                    <div class="pt-4 border-t border-gray-800/80 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                        <span>JUL 2026</span>
+                        <span>REF T5-10293</span>
+                    </div>
+                </div>
+
+                <!-- Payout Card 4: E8 MARKETS -->
+                <div class="bg-[#12111a] border border-gray-800 rounded-2xl p-6 relative flex flex-col justify-between hover:border-purple-600 transition-all shadow-xl">
+                    <div class="absolute top-4 right-4 text-amber-400 text-lg">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div class="absolute top-12 right-3 transform rotate-12 border border-emerald-500/60 bg-emerald-950/40 text-emerald-400 text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase tracking-wider">
+                        PAID
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm tracking-widest text-gray-300 mb-6 uppercase">E8 MARKETS</h4>
+                        <p class="text-[11px] font-mono text-gray-400 tracking-wider uppercase mb-1">Payout Certificate</p>
+                        <div class="text-3xl font-extrabold text-amber-400 font-mono tracking-tight mb-8">$1,875.25</div>
+                    </div>
+                    <div class="pt-4 border-t border-gray-800/80 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                        <span>JUN 2026</span>
+                        <span>REF E8-55612</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer CTA Banner -->
+        <section class="glass-panel p-8 sm:p-12 rounded-3xl text-center relative overflow-hidden">
+            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-4">Ready to Master ICT & SMC?</h3>
+            <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mb-8">Join over 24,000+ traders receiving daily institutional setups, live London/NY breakdowns, and mentorship.</p>
+            
+            <div class="flex justify-center">
+                <a href="https://t.me/ict_universe" target="_blank" class="shimmer-btn text-white font-bold py-4 px-10 rounded-2xl shadow-xl flex items-center space-x-3 text-lg transform hover:scale-105 transition-all">
+                    <i class="fa-brands fa-telegram text-2xl"></i>
+                    <span>JOIN TELEGRAM (@ict_universe)</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-purple-950/60 py-8 text-center text-xs text-gray-500 font-mono">
+        <p class="mb-2">© 2026 ICT TRADING UNIVERSE. All Rights Reserved.</p>
+        <p class="max-w-md mx-auto px-4">Disclaimer: Forex trading carries high risk and may not be suitable for all investors. Signals provided are for educational purposes only.</p>
+    </footer>
+
+    <!-- JavaScript for 1-Minute Countdown Timer -->
+    <script>
+        function startCountdown() {
+            let totalTime = 60; // 60 seconds (1 minute)
+            const minEl = document.getElementById('timer-min');
+            const secEl = document.getElementById('timer-sec');
+
+            const timerInterval = setInterval(() => {
+                totalTime--;
+                if (totalTime < 0) {
+                    totalTime = 60; // Loop timer for high-urgency effect
+                }
+                
+                let minutes = Math.floor(totalTime / 60);
+                let seconds = totalTime % 60;
+
+                minEl.textContent = String(minutes).padStart(2, '0');
+                secEl.textContent = String(seconds).padStart(2, '0');
+            }, 1000);
+        }
+
+        window.onload = function() {
+            startCountdown();
+        };
+    </script>
+</body>
+</html>
